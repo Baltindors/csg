@@ -1,0 +1,49 @@
+/* frontend/src/assets/main.css */
+@import './base.css';
+
+/* 1) Full-screen centered container */
+html, body, #app {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+#app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* you can still add padding if you like a little space around your panel: */
+  padding: var(--section-gap);
+  background: var(--color-background-soft);
+}
+
+/* 2) Link styling picks up your semantic colors */
+a,
+.green {
+  text-decoration: none;
+  color: var(--color-primary);
+  transition: background 0.4s, color 0.4s;
+  padding: 3px;
+}
+@media (hover: hover) {
+  a:hover {
+    background-color: rgba(212, 175, 55, 0.2); /* a pale gold hover */
+  }
+}
+
+/* 3) Remove the old two-column grid at large screens */
+/* — simply delete or comment out this entire block: */
+/*
+@media (min-width: 1024px) {
+  body {
+    display: flex;
+    place-items: center;
+  }
+  #app {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 0 2rem;
+  }
+}
+*/
