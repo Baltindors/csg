@@ -2,14 +2,14 @@
   <div class="home-container">
     <button class="logout-button" @click="logout">Logout</button>
     <div class="content">
-      <!-- Hero Profile Card: shows name, level, and image -->
-      <HeroProfileCard :hero="hero" />
+      <!-- Hero Profile Card: shows name, level, and image or creation prompt -->
+      <HeroProfileCard v-if="hero" :hero="hero" />
 
-      <!-- Hero Background Card: editable modal with rich text -->
-      <HeroBackgroundCard v-model:background="hero.background" />
+      <!-- If hero exists, show Background Card -->
+      <HeroBackgroundCard v-if="hero" v-model:background="hero.background" />
 
       <!-- Actions: start new PvE game -->
-      <div class="actions">
+      <div class="actions" v-if="hero">
         <button class="pve-button" @click="startPveGame">Start New PvE Game</button>
       </div>
     </div>
@@ -17,22 +17,25 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { computed, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/authStore'
+import { useHeroStore } from '@/stores/heroStore'
 import HeroProfileCard from '@/components/HeroProfileCard.vue'
 import HeroBackgroundCard from '@/components/HeroBackgroundCard.vue'
 
 const auth = useAuthStore()
+const heroStore = useHeroStore()
 const router = useRouter()
 
-// Placeholder hero data; replace with API call later
-const hero = ref({
-  name: 'Unnamed Hero',
-  level: 1,
-  imageUrl: '/default-hero.png',
-  background: 'This is your hero background story.',
+// Fetch current hero on mount
+onMounted(() => {
+  heroStore.fetchHero().catch(() => {
+    /* No hero yet */
+  })
 })
+
+const hero = computed(() => heroStore.hero)
 
 function logout() {
   auth.logout()
@@ -48,6 +51,7 @@ function startPveGame() {
 <style scoped>
 .home-container {
   position: relative;
+  max-width: 800px;
   margin: auto;
   padding: 2rem;
 }

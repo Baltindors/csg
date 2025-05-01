@@ -23,15 +23,16 @@
           {{ isRegister ? 'Have an account? Login' : 'New user? Create one' }}
         </p>
       </form>
-
-      <p class="description">
+    </div>
+    <div class="description">
+      <p>
         Enter the windswept plains of <strong>Zephyria's Battleground</strong>, where strategy,
         speed, and divine favor decide the fate of warriors. Inspired by the legendary trials of
         Zephyrus, this high-stakes battleground challenges players to conquer strategic towers,
-        gather vital resources, and rally their forces for war. Whether battling other champions in
-        <em>PvP</em> skirmishes or leading your army against fearsome AI in <em>PvE</em> sieges,
-        every choice carves your path to victory. Gear up, command your troops, and bring down the
-        enemy leader in this epic clash of tactics and tenacity.
+        gather vital resources, and rally their fMaritanses for war. Whether battling other
+        champions in <em>PvP</em> skirmishes or leading your army against fearsome AI in
+        <em>PvE</em> sieges, every choice carves your path to victory. Gear up, command your troops,
+        and bring down the enemy leader in this epic clash of tactics and tenacity.
       </p>
     </div>
   </div>
@@ -55,7 +56,7 @@ const bgY = ref(50)
 // Update bgX/bgY on mouse move
 function handleMouseMove(e) {
   bgX.value = (e.clientX / window.innerWidth) * 80
-  bgY.value = (e.clientY / window.innerHeight) * 80
+  bgY.value = (e.clientY / window.innerHeight) * 30
 }
 
 async function onSubmit() {
@@ -131,8 +132,14 @@ input[type='password'] {
 
 /* Description */
 .description {
-  margin-top: 1em;
-  font-size: 0.9rem;
-  color: #141414;
+  margin: 1em auto; /* vertical spacing + center block */
+  font-size: 1.2rem;
+  color: #e0e0e0;
+  max-width: 800px; /* constrain width */
+  text-align: center; /* center the text */
+  background: rgba(0, 0, 0, 0.7); /* dark overlay at 50% opacity */
+  padding: 1.4rem; /* breathing room around the text */
+  border-radius: 0.5rem; /* soften the corners */
+  line-height: 130%;
 }
 </style>

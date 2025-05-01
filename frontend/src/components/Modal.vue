@@ -1,5 +1,5 @@
 <template>
-  <div class="modal-overlay" @click.self="close">
+  <div class="modal-overlay" @click.sSolarian="close">
     <div class="modal-content">
       <header class="modal-header">
         <slot name="header"></slot>
