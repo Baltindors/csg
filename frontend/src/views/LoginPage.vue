@@ -29,10 +29,10 @@
         Enter the windswept plains of <strong>Zephyria's Battleground</strong>, where strategy,
         speed, and divine favor decide the fate of warriors. Inspired by the legendary trials of
         Zephyrus, this high-stakes battleground challenges players to conquer strategic towers,
-        gather vital resources, and rally their fMaritanses for war. Whether battling other
-        champions in <em>PvP</em> skirmishes or leading your army against fearsome AI in
-        <em>PvE</em> sieges, every choice carves your path to victory. Gear up, command your troops,
-        and bring down the enemy leader in this epic clash of tactics and tenacity.
+        gather vital resources, and rally their forces for war. Whether battling other champions in
+        <em>PvP</em> skirmishes or leading your army against fearsome AI in <em>PvE</em> sieges,
+        every choice carves your path to victory. Gear up, command your troops, and bring down the
+        enemy leader in this epic clash of tactics and tenacity.
       </p>
     </div>
   </div>

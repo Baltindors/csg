@@ -5,12 +5,10 @@ import path from 'path'
 export default defineConfig({
   plugins: [vue()],
   resolve: {
-    alias: {
-      // so "@/foo" works as "src/foo"
-      '@': path.resolve(__dirname, 'src')
-    }
+    alias: { '@': path.resolve(__dirname, 'src') },
   },
   server: {
+    // Proxy only API requests to the Express backend
     proxy: {
       '/api': {
         target: 'http://localhost:3000',
