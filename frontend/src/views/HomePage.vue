@@ -2,8 +2,9 @@
   <div class="home-container">
     <button class="logout-button" @click="logout">Logout</button>
     <div class="content">
-      <!-- Hero Profile Card: shows name, level, and image or creation prompt -->
       <HeroProfileCard v-if="hero" :hero="hero" />
+      <!-- always render the profile card (it’ll show “Choose Your Hero” when hero is null) -->
+      <HeroProfileCard :hero="hero" />
 
       <!-- If hero exists, show Background Card -->
       <HeroBackgroundCard v-if="hero" v-model:background="hero.background" />
